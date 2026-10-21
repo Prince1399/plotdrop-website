@@ -246,11 +246,21 @@
     <div class="footer-links">
       <a href="/privacy/">Privacy Policy</a>
       <a href="/terms/">Terms of Service</a>
-      <a href="mailto:Kemarroach.business@gmail.com">Kemarroach.business@gmail.com</a>
+      <button type="button" class="contact-btn" data-contact-open>Contact</button>
     </div>
     <div class="copyright">&copy; <span data-year>2026</span> PlotDrop. All rights reserved.</div>
   </div>
 </footer>
+
+
+<div class="contact-modal" id="contactModal" hidden role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+  <div class="contact-card">
+    <button type="button" class="contact-close" data-contact-close aria-label="Close">&times;</button>
+    <h3 id="contactTitle">Questions about PlotDrop?</h3>
+    <p>Get in touch - we read everything.</p>
+    <a class="contact-email-btn" href="mailto:Kemarroach.business@gmail.com">Email us</a>
+  </div>
+</div>
 
 <script src="/assets/js/main.js"></script>
 </body>

@@ -211,3 +211,39 @@ footer { border-top: 1px solid var(--line); background: var(--bg-2); padding: 38
   .hero .logo-big { width: 132px; height: 132px; border-radius: 30px; }
   section { padding: 48px 0; }
 }
+
+/* Contact button + modal (email address never printed as page text) */
+.contact-btn {
+  background: var(--grad); color: #fff; border: none; cursor: pointer;
+  font: inherit; font-weight: 700; font-size: 0.92rem;
+  padding: 7px 18px; border-radius: 999px;
+}
+.contact-btn:hover { filter: brightness(1.12); }
+.contact-link {
+  background: none; border: none; cursor: pointer; font: inherit;
+  color: var(--cyan); font-weight: 600; padding: 0;
+}
+.contact-link:hover { text-decoration: underline; }
+.contact-modal {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(2, 2, 10, 0.72); backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.contact-modal[hidden] { display: none; }
+.contact-card {
+  position: relative; background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 30px 28px; max-width: 380px; width: 100%;
+  text-align: center; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+.contact-card h3 { font-size: 1.3rem; margin-bottom: 8px; }
+.contact-card p { color: var(--muted); margin-bottom: 20px; }
+.contact-close {
+  position: absolute; top: 8px; right: 14px; background: none; border: none;
+  color: var(--muted); font-size: 1.6rem; cursor: pointer; line-height: 1;
+}
+.contact-close:hover { color: var(--text); }
+.contact-email-btn {
+  display: inline-block; background: var(--grad); color: #fff; font-weight: 700;
+  padding: 11px 26px; border-radius: 999px;
+}
+.contact-email-btn:hover { text-decoration: none; filter: brightness(1.12); }

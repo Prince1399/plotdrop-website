@@ -36,3 +36,20 @@
   var year = document.querySelector('[data-year]');
   if (year) year.textContent = new Date().getFullYear();
 })();
+
+// Contact modal: the business address lives only in the Email us mailto
+// link inside the modal - it is never printed as page text.
+(function () {
+  var modal = document.getElementById('contactModal');
+  if (!modal) return;
+  function open() { modal.hidden = false; }
+  function close() { modal.hidden = true; }
+  document.querySelectorAll('[data-contact-open]').forEach(function (el) {
+    el.addEventListener('click', open);
+  });
+  modal.querySelectorAll('[data-contact-close]').forEach(function (el) {
+    el.addEventListener('click', close);
+  });
+  modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+})();
