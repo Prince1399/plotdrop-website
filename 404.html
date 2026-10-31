@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PlotDrop link</title>
+<style>
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #0b0b12; color: #f2f2f7; font-family: system-ui, -apple-system, sans-serif; text-align: center; padding: 24px; }
+  main { max-width: 420px; }
+  h1 { font-size: 28px; margin: 0 0 12px; }
+  p { color: #b9b9c7; line-height: 1.5; }
+  a.btn { display: block; margin: 16px 0 0; padding: 14px; border-radius: 12px; background: #7c5cff; color: #fff; text-decoration: none; font-weight: 700; }
+  a.btn.secondary { background: #23232e; color: #f2f2f7; }
+  code { color: #9be7ff; word-break: break-all; }
+</style>
+</head>
+<body>
+<main id="root">
+  <h1>PlotDrop</h1>
+  <p>Loading your link...</p>
+</main>
+<script>
+  (function () {
+    var root = document.getElementById('root');
+    var parts = window.location.pathname.split('/').filter(Boolean);
+    function escapeHtml(s) {
+      return s.replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+    if ((parts[0] === 'c' || parts[0] === 'circle') && parts[1]) {
+      var id = parts[1];
+      root.innerHTML = '<h1>You are invited to a PlotDrop circle</h1>'
+        + '<p>Open the invite in the app to join the circle.</p>'
+        + '<a class="btn" href="plotdrop://circle/' + encodeURIComponent(id) + '">Open in PlotDrop</a>'
+        + '<a class="btn secondary" href="/download/">Get the app</a>';
+    } else if (parts[0] === 'd' && parts[1]) {
+      var name = parts[1];
+      root.innerHTML = '<h1>PlotDrop profile: ' + escapeHtml(decodeURIComponent(name)) + '</h1>'
+        + '<p>Open this link in the PlotDrop app to see this profile.</p>'
+        + '<a class="btn secondary" href="/download/">Get the app</a>';
+    } else {
+      root.innerHTML = '<h1>Page not found</h1>'
+        + '<p>That PlotDrop link does not exist anymore, or was typed wrong.</p>'
+        + '<a class="btn secondary" href="/">Back to PlotDrop home</a>';
+    }
+  })();
+</script>
+</body>
+</html>
